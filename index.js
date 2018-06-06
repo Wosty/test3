@@ -50,7 +50,7 @@ app.post('/webhook/', function (req, res) {
     res.sendStatus(200)
 })
 
-const token = process.env.FB_PAGE_ACCESS_TOKEN
+const token = process.env.GROUPME_BOT_ID
 
 function sendTextMessage(sender, text) {
     let messageData = { text:text }
