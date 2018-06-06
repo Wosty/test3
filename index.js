@@ -37,7 +37,7 @@ app.post('/webhook/', function (req, res) {
 	    if (event.message && event.message.text && sender != myID) {
 	    	let text = event.message.text
 			request({
-			    url: 'https://flask-server-seq2seq-chatbot.herokuapp.com/prediction',
+			    url: 'https://flask-chatboi.herokuapp.com/',
 			    method: 'POST',
 			    body: {message: text.substring(0, 200)},
 			    headers: {'User-Agent': 'request'},
@@ -55,7 +55,7 @@ const token = process.env.FB_PAGE_ACCESS_TOKEN
 function sendTextMessage(sender, text) {
     let messageData = { text:text }
     request({
-	    url: 'https://graph.facebook.com/v2.6/me/messages',
+	    url: 'https://api.groupme.com/v3/bots/post',
 	    qs: {access_token:token},
 	    method: 'POST',
 		json: {
